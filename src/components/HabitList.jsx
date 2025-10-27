@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HabitList = ({ habits, deleteHabit, updateHabit }) => {
+const HabitList = ({ habits, deleteHabit, updateHabit, toggleComplete }) => {
   const handleEdit = (habit) => {
     const newText = window.prompt('Update habit:', habit.text);
     if (newText) {
@@ -17,8 +17,18 @@ const HabitList = ({ habits, deleteHabit, updateHabit }) => {
             key={habit.id}
             className="bg-gray-100 p-4 rounded-lg mb-2 flex justify-between items-center"
           >
-            <span>{habit.text}</span>
-            <div>
+            <input
+              type="checkbox"
+              checked={habit.completed}
+              onChange={() => toggleComplete(habit.id)}
+              className="mr-2"
+            />
+            <span
+              className={habit.completed ? 'line-through text-gray-500' : ''}
+            >
+              {habit.text}
+            </span>
+            <div className="ml-auto">
               <button
                 onClick={() => handleEdit(habit)}
                 className="bg-yellow-500 text-white px-2 py-1 rounded ml-2"

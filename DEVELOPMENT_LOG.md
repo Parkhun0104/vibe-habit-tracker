@@ -127,3 +127,22 @@
 - **학습 내용**:
     - Tailwind CSS의 'mobile-first' 접근 방식(기본이 모바일, `sm:` 이상이 데스크톱)을 이해함.
     - AI 프롬프트로 복잡한 반응형 레이아웃(flex-col -> sm:flex-row)을 생성할 수 있음을 확인.
+
+    #### Day 8 (날짜)
+- **작업 내용**:
+    - 습관 데이터 구조 변경: `completed: false` 속성 추가.
+    - `App.jsx`에 `handleToggleComplete` 함수 추가 (AI 활용).
+    - `HabitList.jsx`에 체크박스 추가 및 토글 기능 연결.
+    - 완료된 항목은 취소선(`line-through`) 스타일 적용.
+- **Gemini CLI 사용 프롬프트 (예정)**:
+    - `"Refactor 'src/App.jsx': 1. When adding a new habit in 'handleAddHabit', the habit object should now also include 'completed: false'. 2. Add a new function 'handleToggleComplete(id)' that toggles the 'completed' boolean value for the habit with the matching 'id'. 3. Pass this 'handleToggleComplete' function as a prop to 'HabitList'. Ensure LocalStorage logic still works with the new object structure."`
+    - `"Refactor 'src/components/HabitList.jsx': It now receives 'handleToggleComplete' prop. 1. Add a checkbox ('<input type=\"checkbox\">') before each habit text. 2. The checkbox's 'checked' attribute should be bound to 'habit.completed'. 3. When the checkbox is changed ('onChange'), it must call 'handleToggleComplete(habit.id)'. 4. The habit text (<span>) should have a conditional class: 'habit.completed ? \"line-through text-gray-500\" : \"\"'."`
+- **결과 및 수정사항**:
+- **학습 내용**:
+- **결과 및 수정사항**:
+    - `App.jsx`의 `handleAddHabit`에 `completed: false`를 추가하고, `handleToggleComplete` 함수를 성공적으로 구현함 (AI-refactored).
+    - `HabitList.jsx`에 체크박스와 조건부 스타일(`line-through`)을 적용함 (AI-refactored).
+    - 브라우저 테스트 결과, 토글 기능 및 LocalStorage 연동이 정상 작동함 (핵심 기능 2/3 완료).
+- **학습 내용**:
+    - AI 프롬프트를 통해 기존 데이터 구조를 변경하고(객체에 속성 추가), 이에 맞춰 여러 함수(`add`, `toggle`, `useEffect`)를 동시에 리팩토링하는 방법을 익힘.
+    - Tailwind CSS의 조건부 클래스를 사용하여 상태(completed)에 따른 UI(취소선) 변경을 구현함.

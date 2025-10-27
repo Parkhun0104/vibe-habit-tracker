@@ -17,6 +17,7 @@ function App() {
     const newHabit = {
       id: Date.now(),
       text: habitText,
+      completed: false,
     };
     setHabits([...habits, newHabit]);
   };
@@ -33,6 +34,14 @@ function App() {
     );
   };
 
+  const handleToggleComplete = (id) => {
+    setHabits(
+      habits.map((habit) =>
+        habit.id === id ? { ...habit, completed: !habit.completed } : habit
+      )
+    );
+  };
+
   return (
     <div className="container mx-auto p-4 md:max-w-lg">
       <h1 className="text-2xl font-bold text-center mb-6">Vibe Habit Tracker</h1>
@@ -41,6 +50,7 @@ function App() {
         habits={habits}
         deleteHabit={handleDeleteHabit}
         updateHabit={handleUpdateHabit}
+        toggleComplete={handleToggleComplete}
       />
     </div>
   );
