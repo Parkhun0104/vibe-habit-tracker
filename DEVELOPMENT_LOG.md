@@ -38,3 +38,20 @@
     - `App.jsx`에 폼을 추가하고, 임시 `handleAddHabit` 함수를 연결하여 브라우저 콘솔에서 데이터 전달을 확인함.
 - **학습 내용**:
     - AI에게 프롬프트로 prop 함수의 이름(`addHabit`)과 내부 로직(`useState`, `onSubmit`)을 명시하니, 거의 수정 없이 바로 사용 가능한 컴포넌트가 생성됨.
+
+    #### Day 3 (날짜)
+- **작업 내용**:
+    - `App.jsx`에서 `useState`로 습관 목록 상태 관리 (State-lifting).
+    - `HabitForm`이 새 습관을 상태에 추가(Create)하도록 로직 구현.
+    - `HabitList`가 더미 데이터 대신 실제 습관 목록(Read)을 표시하도록 수정.
+- **Gemini CLI 사용 프롬프트 (예정)**:
+    - `"Refactor my 'src/App.jsx' file. I want to manage a list of habits using 'useState'. The 'useState' default value should be an array of objects like [{ id: 1, text: 'Read a book' }]. Modify the 'handleAddHabit' function to add a new habit object (with a unique id) to this state array. Pass the 'habits' state to 'HabitList' component as a prop."`
+- **결과 및 수정사항**:
+- **학습 내용**:
+- **결과 및 수정사항**:
+    - `gemini -p "..."` 프롬프트로 `App.jsx` 리팩토링 성공. `useState`로 상태 관리를 상위로 올림(state lifting).
+    - `HabitList.jsx`도 AI의 도움을 받아 prop을 받도록 수정.
+    - 폼(Create)과 목록(Read)이 `App.jsx`의 상태(`habits`)를 통해 성공적으로 연결됨.
+- **학습 내용**:
+    - AI 프롬프트를 통해 기존 파일(`App.jsx`) 전체를 리팩토링하는 것이 가능함을 확인.
+    - React의 단방향 데이터 흐름(props 전달)과 상태 끌어올리기(state lifting)를 구현함.

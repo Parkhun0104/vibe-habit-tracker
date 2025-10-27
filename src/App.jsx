@@ -1,18 +1,24 @@
+import React, { useState } from 'react';
 import HabitList from './components/HabitList';
-import HabitForm from './components/HabitForm'; // 1. Import
+import HabitForm from './components/HabitForm';
 import './index.css';
 
 function App() {
-  // 3. (임시) addHabit 함수 정의 (콘솔에만 출력)
+  const [habits, setHabits] = useState([{ id: 1, text: 'Read a book' }]);
+
   const handleAddHabit = (habitText) => {
-    console.log("New habit from form:", habitText);
-    // 실제 데이터 추가 로직은 다음 단계에서 구현합니다.
+    const newHabit = {
+      id: Date.now(),
+      text: habitText,
+    };
+    setHabits([...habits, newHabit]);
   };
 
   return (
     <div className="container mx-auto p-4 max-w-lg">
-      <HabitForm addHabit={handleAddHabit} /> {/* 2. 추가 및 prop 전달 */}
-      <HabitList />
+      <h1 className="text-2xl font-bold text-center mb-6">Vibe Habit Tracker</h1>
+      <HabitForm addHabit={handleAddHabit} />
+      <HabitList habits={habits} />
     </div>
   );
 }
