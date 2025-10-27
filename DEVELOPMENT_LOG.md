@@ -25,3 +25,16 @@
     - 실행 중 `PostCSS` 관련 오류 발생. `npm install -D @tailwindcss/postcss`를 설치하고 `postcss.config.cjs` 파일에 `@tailwindcss/postcss`를 명시적으로 등록하여 해결함. (AI-assisted debugging)
 - **학습 내용**:
     - 최신 Tailwind CSS는 PostCSS 플러그인으로 `@tailwindcss/postcss` 패키지를 명시적으로 요구함을 배움.
+
+    #### Day 2 (날짜)
+- **작업 내용**:
+    - 새로운 습관을 입력받는 'HabitForm.jsx' 컴포넌트 생성 (AI 활용)
+- **Gemini CLI 사용 프롬프트 (예정)**:
+    - `"Create a React functional component 'HabitForm.jsx' for 'src/components' using Tailwind. It needs an input field (type text) and a submit button ('Add Habit'). Use React's useState hook to manage the input value. When submitted, the form should call a (not-yet-implemented) 'addHabit' prop function with the new habit text."`
+- **결과 및 수정사항**:
+- **학습 내용**:
+- **결과 및 수정사항**:
+    - `HabitForm.jsx`가 프롬프트대로 `useState`를 포함하여 잘 생성됨.
+    - `App.jsx`에 폼을 추가하고, 임시 `handleAddHabit` 함수를 연결하여 브라우저 콘솔에서 데이터 전달을 확인함.
+- **학습 내용**:
+    - AI에게 프롬프트로 prop 함수의 이름(`addHabit`)과 내부 로직(`useState`, `onSubmit`)을 명시하니, 거의 수정 없이 바로 사용 가능한 컴포넌트가 생성됨.
