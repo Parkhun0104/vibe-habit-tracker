@@ -165,3 +165,19 @@
 - **학습 내용**:
     - React에서 상태(`filter`)를 기반으로 파생된 데이터(`filteredHabits`)를 계산하여 UI에 반영하는 방법을 익힘.
     - 부모(`App`)가 자식(`FilterButtons`)에게 상태 변경 함수(`setFilter`)를 전달하고, 자식이 부모의 상태를 변경하는 패턴을 구현함.
+    
+    ## 주요 도전 과제 및 해결 방법
+1. **문제**: Tailwind CSS 초기 설정 시 `PostCSS` 관련 오류 발생.
+   - **해결**: 오류 메시지를 기반으로 Gemini CLI에 질문함. `@tailwindcss/postcss` 패키지를 설치하고 `postcss.config.cjs` 파일에 플러그인을 명시적으로 등록하여 해결함. (AI-assisted)
+2. **문제**: `LocalStorage` 연동 시 `JSON.stringify` / `JSON.parse`를 누락하여 객체가 `[object Object]`로 저장됨.
+   - **해결**: Gemini CLI에 "how to save array of objects to localStorage in React"라고 질문하여 `JSON` 변환의 필요성을 확인하고 코드를 수정함.
+
+## 바이브 코딩 활용 소감
+- **AI와의 협업 경험**: (예: 단순 코드 생성을 넘어 리팩토링, 디버깅 파트너로 유용했음...)
+- **효과적이었던 프롬프트 패턴**: (예: "Refactor 'FileName.jsx': Keep existing logic, but add [New Feature]"처럼 기존 코드를 유지하며 기능을 추가하는 프롬프트가 효과적이었음...)
+- **개선이 필요한 부분**: (예: AI가 가끔 오래된 문법을 제안할 때가 있어 검증이 필수적이었음...)
+
+## 최종 결과물 평가
+- **달성한 목표**: CRUD, 데이터 저장, 반응형 UI, 핵심 기능 3가지(토글, 필터링)를 모두 구현함.
+- **미완성 기능**: (예: 수정(Update) 시 `prompt` 대신 모달(Modal) UI를 사용하고 싶었으나 시간 관계상 구현 못함.)
+- **향후 개선 계획**: (예: 백엔드(Supabase 등)를 연동하여 실제 사용자 계정 기반으로 확장.)
