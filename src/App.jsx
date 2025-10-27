@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HabitList from './components/HabitList';
 import HabitForm from './components/HabitForm';
 import './index.css';
 
 function App() {
-  const [habits, setHabits] = useState([{ id: 1, text: 'Read a book' }]);
+  const [habits, setHabits] = useState(() => {
+    const savedHabits = localStorage.getItem('habits');
+    return savedHabits ? JSON.parse(savedHabits) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('habits', JSON.stringify(habits));
+  }, [habits]);
 
   const handleAddHabit = (habitText) => {
     const newHabit = {

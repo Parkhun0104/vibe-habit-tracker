@@ -72,3 +72,20 @@
     - 브라우저에서 삭제 기능이 정상 작동하는 것을 확인함 (CRUD의 D 완료).
 - **학습 내용**:
     - AI 프롬프트로 기존 컴포넌트에 새 함수(prop)를 전달하고, 자식 컴포넌트에서 이를 `onClick` 이벤트에 연결하는 과정을 효율적으로 처리함.
+
+    #### Day 5 (날짜)
+- **작업 내용**:
+    - `App.jsx` 리팩토링: `LocalStorage`와 `useEffect`를 사용해 습관 목록 영구 저장.
+    - (1) 앱 로드 시 `LocalStorage`에서 데이터 불러오기.
+    - (2) `habits` 상태 변경 시 `LocalStorage`에 자동 저장하기.
+- **Gemini CLI 사용 프롬프트 (예정)**:
+    - `"Refactor 'src/App.jsx'. I want to persist the 'habits' state to LocalStorage. 1. When the component mounts, load the habits from localStorage (key: 'habits'). Use 'useState' initial value to lazy load from localStorage or set to an empty array. 2. Use 'useEffect' to save the 'habits' state to localStorage (key: 'habits') whenever the 'habits' array changes. Keep all other functions (handleAdd, handleDelete) working."`
+- **결과 및 수정사항**:
+- **학습 내용**:
+- **결과 및 수정사항**:
+    - `App.jsx`가 `useEffect`와 `localStorage`를 사용하도록 성공적으로 리팩토링됨. (AI-refactored)
+    - `useState`의 초기값으로 `localStorage.getItem`을 사용하고, `useEffect`의 의존성 배열(`[habits]`)을 사용해 `localStorage.setItem`이 올바르게 동작함.
+    - 브라우저 새로고침 시 데이터가 유지되는 것을 확인함 (데이터 저장 요구사항 충족).
+- **학습 내용**:
+    - `useEffect` 훅을 사용하여 React 컴포넌트의 라이프사이클(마운트 시)과 상태 변경(업데이트 시)에 맞춰 `LocalStorage` 같은 Side Effect를 처리하는 방법을 배움.
+    - `JSON.stringify`와 `JSON.parse`의 필요성을 확인함.
