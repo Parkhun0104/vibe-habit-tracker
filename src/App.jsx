@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HabitList from './components/HabitList';
 import HabitForm from './components/HabitForm';
+import FilterButtons from './components/FilterButtons';
 import './index.css';
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
     const savedHabits = localStorage.getItem('habits');
     return savedHabits ? JSON.parse(savedHabits) : [];
   });
+
+  const [filter, setFilter] = useState('ALL');
 
   useEffect(() => {
     localStorage.setItem('habits', JSON.stringify(habits));
@@ -42,12 +45,20 @@ function App() {
     );
   };
 
+  const filteredHabits = habits.filter((habit) => {
+    if (filter === 'ALL') return true;
+    if (filter === 'ACTIVE') return !habit.completed;
+    if (filter === 'COMPLETED') return habit.completed;
+    return true;
+  });
+
   return (
     <div className="container mx-auto p-4 md:max-w-lg">
       <h1 className="text-2xl font-bold text-center mb-6">Vibe Habit Tracker</h1>
       <HabitForm addHabit={handleAddHabit} />
+      <FilterButtons filter={filter} setFilter={setFilter} />
       <HabitList
-        habits={habits}
+        habits={filteredHabits}
         deleteHabit={handleDeleteHabit}
         updateHabit={handleUpdateHabit}
         toggleComplete={handleToggleComplete}

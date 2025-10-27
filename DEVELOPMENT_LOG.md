@@ -146,3 +146,22 @@
 - **학습 내용**:
     - AI 프롬프트를 통해 기존 데이터 구조를 변경하고(객체에 속성 추가), 이에 맞춰 여러 함수(`add`, `toggle`, `useEffect`)를 동시에 리팩토링하는 방법을 익힘.
     - Tailwind CSS의 조건부 클래스를 사용하여 상태(completed)에 따른 UI(취소선) 변경을 구현함.
+
+    #### Day 9 (날짜)
+- **작업 내용**:
+    - 습관 목록 필터링 기능 구현 (All / Active / Completed).
+    - `App.jsx`에 필터 상태(`filter`)를 `useState`로 추가.
+    - 필터 변경 버튼 UI (FilterButtons.jsx) 생성 (AI 활용).
+    - `HabitList`에 전달되는 `habits` 배열을 `filter` 상태에 따라 동적으로 변경.
+- **Gemini CLI 사용 프롬프트 (예정)**:
+    - `"Create a new React component 'src/components/FilterButtons.jsx'. It should render 3 buttons ('All', 'Active', 'Completed') using Tailwind. It receives a 'setFilter' prop and 'filter' prop. Clicking a button should call 'setFilter' with 'ALL', 'ACTIVE', or 'COMPLETED'. The active button should have a distinct style (e.g., bg-blue-700)."`
+    - `"Refactor 'src/App.jsx': 1. Import 'FilterButtons.jsx'. 2. Add new state 'const [filter, setFilter] = useState(\"ALL\")'. 3. Render <FilterButtons setFilter={setFilter} filter={filter} /> above HabitList. 4. Create a new variable 'filteredHabits' based on the 'habits' state and the 'filter' state (ALL, ACTIVE, COMPLETED). 5. Pass 'filteredHabits' to 'HabitList' instead of the full 'habits' array."`
+- **결과 및 수정사항**:
+- **학습 내용**:
+- **결과 및 수정사항**:
+    - `FilterButtons.jsx` 컴포넌트를 AI로 성공적으로 생성함.
+    - `App.jsx`에 `filter` 상태를 추가하고, `filteredHabits` 로직을 구현하여 `HabitList`에 필터링된 데이터를 전달함 (AI-refactored).
+    - 브라우저에서 3개 필터(All, Active, Completed)가 모두 정상 작동함 (핵심 기능 3/3 완료).
+- **학습 내용**:
+    - React에서 상태(`filter`)를 기반으로 파생된 데이터(`filteredHabits`)를 계산하여 UI에 반영하는 방법을 익힘.
+    - 부모(`App`)가 자식(`FilterButtons`)에게 상태 변경 함수(`setFilter`)를 전달하고, 자식이 부모의 상태를 변경하는 패턴을 구현함.
