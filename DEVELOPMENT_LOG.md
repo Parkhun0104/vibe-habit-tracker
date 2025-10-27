@@ -89,3 +89,24 @@
 - **학습 내용**:
     - `useEffect` 훅을 사용하여 React 컴포넌트의 라이프사이클(마운트 시)과 상태 변경(업데이트 시)에 맞춰 `LocalStorage` 같은 Side Effect를 처리하는 방법을 배움.
     - `JSON.stringify`와 `JSON.parse`의 필요성을 확인함.
+
+    #### Day 6 (날짜)
+- **작업 내용**:
+    - '수정(Edit)' 기능 구현 (U of CRUD).
+    - 각 습관 항목에 'Edit' 버튼 추가.
+    - 'Edit' 버튼 클릭 시, 텍스트를 입력 폼으로 변경.
+    - (심화) 또는, 'Edit' 버튼 클릭 시 `HabitForm`을 재사용하여 수정 모드로 변경.
+    - `App.jsx`에 `handleUpdateHabit` 함수 추가.
+- **Gemini CLI 사용 프롬프트 (예정)**:
+    - (가장 간단한 방법으로 `prompt()`를 사용해 보겠습니다)
+    - `"Refactor 'src/App.jsx': Add a new function 'handleUpdateHabit(id, newText)' that updates the habit text for the given id in the 'habits' state. Pass this function to 'HabitList'."`
+    - `"Refactor 'src/components/HabitList.jsx': It now receives 'handleUpdateHabit' prop. Add an 'Edit' button (Tailwind: bg-yellow-500) next to the 'Delete' button. When 'Edit' is clicked, use the browser's 'prompt()' to get new text (defaulting to 'habit.text'). If the user enters new text, call 'handleUpdateHabit(habit.id, newText)'."`
+- **결과 및 수정사항**:
+- **학습 내용**:
+- **결과 및 수정사항**:
+    - `App.jsx`에 `handleUpdateHabit` 함수를 성공적으로 추가함. (AI-refactored)
+    - `HabitList.jsx`에 'Edit' 버튼을 추가하고 `window.prompt`를 이용해 수정 로직을 구현함. (AI-refactored)
+    - 브라우저에서 수정 및 새로고침 테스트 완료 (CRUD의 U 및 데이터 저장 확인).
+- **학습 내용**:
+    - `window.prompt`를 사용해 간단하게 사용자 입력을 받아 Update 기능을 구현하는 방법을 배움.
+    - CRUD 4가지 기능과 LocalStorage 연동이 모두 완료됨.

@@ -25,11 +25,23 @@ function App() {
     setHabits(habits.filter((habit) => habit.id !== id));
   };
 
+  const handleUpdateHabit = (id, newText) => {
+    setHabits(
+      habits.map((habit) =>
+        habit.id === id ? { ...habit, text: newText } : habit
+      )
+    );
+  };
+
   return (
     <div className="container mx-auto p-4 max-w-lg">
       <h1 className="text-2xl font-bold text-center mb-6">Vibe Habit Tracker</h1>
       <HabitForm addHabit={handleAddHabit} />
-      <HabitList habits={habits} deleteHabit={handleDeleteHabit} />
+      <HabitList
+        habits={habits}
+        deleteHabit={handleDeleteHabit}
+        updateHabit={handleUpdateHabit}
+      />
     </div>
   );
 }
