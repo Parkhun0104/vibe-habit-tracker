@@ -110,3 +110,20 @@
 - **학습 내용**:
     - `window.prompt`를 사용해 간단하게 사용자 입력을 받아 Update 기능을 구현하는 방법을 배움.
     - CRUD 4가지 기능과 LocalStorage 연동이 모두 완료됨.
+
+    #### Day 7 (날짜)
+- **작업 내용**:
+    - 반응형 웹 디자인 적용 (모바일/데스크톱 호환).
+    - `App.jsx`의 메인 컨테이너에 `max-width` 적용 (모바일에서는 꽉 차게, 데스크톱에서는 중앙 정렬).
+    - `HabitList.jsx`의 버튼들이 모바일 화면에서 너무 커지지 않게 조정.
+- **Gemini CLI 사용 프롬프트 (예정)**:
+    - `"Refactor 'src/App.jsx': Apply responsive design using Tailwind. The main <div> should be full width on mobile (default) but have a 'max-w-lg' (max-width large) and 'mx-auto' (margin auto) on medium screens ('md:') and up. Keep the 'p-4'."`
+    - `"Refactor 'src/components/HabitForm.jsx': Make the input and button stack vertically on mobile (default) but appear side-by-side ('flex-row') on small screens ('sm:') and up. The button should have a width of 'w-full' on mobile and 'w-auto' on 'sm:'."`
+- **결과 및 수정사항**:
+- **학습 내용**:
+- **결과 및 수정사항**:
+    - `App.jsx`와 `HabitForm.jsx`에 Tailwind CSS의 반응형 클래스(`md:`, `sm:`)를 AI 프롬프트로 성공적으로 적용함. (AI-refactored)
+    - 브라우저 개발자 도구의 모바일 뷰로 테스트 완료. (반응형 웹 디자인 요구사항 충족)
+- **학습 내용**:
+    - Tailwind CSS의 'mobile-first' 접근 방식(기본이 모바일, `sm:` 이상이 데스크톱)을 이해함.
+    - AI 프롬프트로 복잡한 반응형 레이아웃(flex-col -> sm:flex-row)을 생성할 수 있음을 확인.

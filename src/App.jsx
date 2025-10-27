@@ -34,7 +34,7 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto p-4 max-w-lg">
+    <div className="container mx-auto p-4 md:max-w-lg">
       <h1 className="text-2xl font-bold text-center mb-6">Vibe Habit Tracker</h1>
       <HabitForm addHabit={handleAddHabit} />
       <HabitList
