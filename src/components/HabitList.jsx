@@ -11,7 +11,7 @@ const HabitList = ({ habits, deleteHabit, updateHabit, toggleComplete }) => {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">My Habits</h2>
-      <ul>
+      <ul className="space-y-2">
         {habits.map((habit) => (
           <li
             key={habit.id}
