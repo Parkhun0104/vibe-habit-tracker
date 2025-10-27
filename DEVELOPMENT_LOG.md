@@ -55,3 +55,20 @@
 - **학습 내용**:
     - AI 프롬프트를 통해 기존 파일(`App.jsx`) 전체를 리팩토링하는 것이 가능함을 확인.
     - React의 단방향 데이터 흐름(props 전달)과 상태 끌어올리기(state lifting)를 구현함.
+
+    #### Day 4 (날짜)
+- **작업 내용**:
+    - `HabitList`의 각 항목에 '삭제' 버튼 추가 (AI 활용).
+    - `App.jsx`에 `handleDeleteHabit` 함수 생성 (AI 활용).
+    - '삭제' 버튼 클릭 시 해당 습관이 목록에서 제거되도록 구현 (D of CRUD).
+- **Gemini CLI 사용 프롬프트 (예정)**:
+    - `"Refactor 'src/App.jsx': Add a new function 'handleDeleteHabit(id)' that removes a habit from the 'habits' state array using the habit's id. Pass this function down to 'HabitList'."`
+    - `"Refactor 'src/components/HabitList.jsx': It now receives 'handleDeleteHabit' prop. Inside the map function, add a 'Delete' button (Tailwind: bg-red-500, text-white) next to each habit text. When clicked, this button should call 'handleDeleteHabit(habit.id)'."`
+- **결과 및 수정사항**:
+- **학습 내용**:
+- **결과 및 수정사항**:
+    - Gemini CLI를 사용해 `App.jsx`에 `handleDeleteHabit` 함수를 성공적으로 추가함. (AI-refactored)
+    - `HabitList.jsx`에도 'Delete' 버튼을 추가하고 `handleDeleteHabit` prop과 연결함. (AI-refactored)
+    - 브라우저에서 삭제 기능이 정상 작동하는 것을 확인함 (CRUD의 D 완료).
+- **학습 내용**:
+    - AI 프롬프트로 기존 컴포넌트에 새 함수(prop)를 전달하고, 자식 컴포넌트에서 이를 `onClick` 이벤트에 연결하는 과정을 효율적으로 처리함.

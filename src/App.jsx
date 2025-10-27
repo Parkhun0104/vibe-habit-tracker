@@ -14,11 +14,15 @@ function App() {
     setHabits([...habits, newHabit]);
   };
 
+  const handleDeleteHabit = (id) => {
+    setHabits(habits.filter((habit) => habit.id !== id));
+  };
+
   return (
     <div className="container mx-auto p-4 max-w-lg">
       <h1 className="text-2xl font-bold text-center mb-6">Vibe Habit Tracker</h1>
       <HabitForm addHabit={handleAddHabit} />
-      <HabitList habits={habits} />
+      <HabitList habits={habits} deleteHabit={handleDeleteHabit} />
     </div>
   );
 }
